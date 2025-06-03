@@ -1,5 +1,7 @@
+import 'package:crafty/app/controller_binder.dart';
 import 'package:crafty/features/auth/ui/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 import 'app_routes.dart';
 import 'app_theme.dart';
@@ -14,12 +16,13 @@ class CraftyBay extends StatefulWidget {
 class _CraftyBayState extends State<CraftyBay> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.name,
       // routes: {'/':(context)=> SplashScreen(),},
       theme: AppTheme.lightThemeData,
       onGenerateRoute: AppRoutes.routes,
+      initialBinding: ControllerBinder(),
     );
   }
 }

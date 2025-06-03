@@ -33,6 +33,9 @@ class AppTheme {
           ),
         ),
       ),
+      appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(fontSize: 18, color: Colors.black87),
+      ),
     );
   }
 

@@ -1,7 +1,8 @@
 import 'package:crafty/features/auth/ui/screen/email_verification_screen.dart';
 import 'package:crafty/features/auth/ui/screen/sign_up_screen.dart';
 import 'package:crafty/features/auth/ui/widgets/app_logo.dart';
-import 'package:crafty/features/home/ui/screens/home_screen.dart';
+import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onTapLoginButton() {
     Navigator.pushNamedAndRemoveUntil(
       context,
-      HomeScreen.name,
+      MainBottomNavScreen.name,
       (predicate) => false,
     );
     // if (_formKey.currentState!.validate()) {}

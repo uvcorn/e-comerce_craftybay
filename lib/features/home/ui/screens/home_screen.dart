@@ -1,14 +1,17 @@
 import 'package:crafty/app/asset_path.dart';
 import 'package:crafty/features/auth/ui/screen/login_screen.dart';
+import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
+import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:crafty/features/home/ui/widgets/appbar_iconbutton.dart';
 import 'package:crafty/features/home/ui/widgets/home_carousel_slider.dart';
+import 'package:crafty/features/common/ui/widgets/product_category_item.dart';
 import 'package:crafty/features/home/ui/widgets/product_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-  static final String name = '/home';
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -28,10 +31,20 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               HomeCarouselSlider(),
               const SizedBox(height: 8),
-              _sectionHeader(title: 'Catagories', onTapSeeAll: () {}),
-              _sectionHeader(title: 'Popular', onTapSeeAll: () {}),
-              _sectionHeader(title: 'Special', onTapSeeAll: () {}),
-              _sectionHeader(title: 'New', onTapSeeAll: () {}),
+              _buildSectionHeader(
+                title: 'Categories',
+                onTapSeeAll: () {
+                  Get.find<MainBottomNavController>().moveToCategory();
+                  Get.offAllNamed(MainBottomNavScreen.name);
+                },
+              ),
+              _getCategoryList(),
+              _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
+              _getCategoryList(),
+              _buildSectionHeader(title: 'Special', onTapSeeAll: () {}),
+              _getCategoryList(),
+              _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
+              _getCategoryList(),
             ],
           ),
         ),
@@ -55,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _sectionHeader({
+  Widget _buildSectionHeader({
     required String title,
     required VoidCallback onTapSeeAll,
   }) {
@@ -65,6 +78,22 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(title, style: Theme.of(context).textTheme.titleSmall),
         TextButton(onPressed: onTapSeeAll, child: Text('See all')),
       ],
+    );
+  }
+
+  Widget _getCategoryList() {
+    return SizedBox(
+      height: 100,
+      // width: double.infinity,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: 7,
+
+        itemBuilder: (context, index) {
+          return ProductCategoryItem();
+        },
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
+      ),
     );
   }
 }
