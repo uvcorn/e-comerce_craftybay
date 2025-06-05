@@ -2,6 +2,7 @@ import 'package:crafty/app/asset_path.dart';
 import 'package:crafty/features/auth/ui/screen/login_screen.dart';
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:crafty/features/common/ui/widgets/product_card';
 import 'package:crafty/features/home/ui/widgets/appbar_iconbutton.dart';
 import 'package:crafty/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:crafty/features/common/ui/widgets/product_category_item.dart';
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               _getCategoryList(),
               _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
-              _getCategoryList(),
+              _getPopularProducts(),
               _buildSectionHeader(title: 'Special', onTapSeeAll: () {}),
               _getCategoryList(),
               _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
@@ -48,6 +49,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _getPopularProducts() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Wrap(
+        spacing: 8,
+        direction: Axis.horizontal,
+        children: [1, 2, 3, 4].map<Widget>((e) => ProductCard()).toList(),
       ),
     );
   }

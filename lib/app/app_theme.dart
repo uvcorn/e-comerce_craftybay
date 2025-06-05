@@ -22,9 +22,7 @@ class AppTheme {
           fixedSize: Size.fromWidth(double.maxFinite),
           backgroundColor: AppColors.themeColor,
           foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           padding: EdgeInsets.symmetric(vertical: 12),
           textStyle: TextStyle(
             fontSize: 16,
