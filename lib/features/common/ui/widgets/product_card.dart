@@ -1,27 +1,28 @@
 import 'package:crafty/app/app_colors.dart';
-import 'package:crafty/app/asset_paths.dart';
+import 'package:crafty/app/asset_path.dart';
 import 'package:flutter/material.dart';
+
 class ProductCard extends StatelessWidget {
-  const ProductCard({
-    super.key,
-  });
+  const ProductCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 140,
+      margin: EdgeInsets.all(2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.themeColor.withValues(alpha: 0.1),
-    
+            color: AppColors.themeColor.withValues(alpha: 0.2),
+
             offset: Offset(0.0, 0.7),
             blurRadius: 5,
           ),
         ],
       ),
-      width: 140,
+
       child: Column(
         children: [
           Container(
@@ -49,7 +50,6 @@ class ProductCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -73,7 +73,7 @@ class ProductCard extends StatelessWidget {
               Card(
                 color: AppColors.themeColor,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(4),
+                  borderRadius: BorderRadius.circular(4),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(2),

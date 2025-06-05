@@ -2,7 +2,8 @@ import 'package:crafty/app/asset_path.dart';
 import 'package:crafty/features/auth/ui/screen/login_screen.dart';
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
-import 'package:crafty/features/common/ui/widgets/product_card';
+
+import 'package:crafty/features/common/ui/widgets/product_card.dart';
 import 'package:crafty/features/home/ui/widgets/appbar_iconbutton.dart';
 import 'package:crafty/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:crafty/features/common/ui/widgets/product_category_item.dart';
@@ -43,23 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
               _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
               _getPopularProducts(),
               _buildSectionHeader(title: 'Special', onTapSeeAll: () {}),
-              _getCategoryList(),
+              _getSpecialProducts(),
               _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
-              _getCategoryList(),
+              _getNewProducts(),
+              const SizedBox(height: 8),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _getPopularProducts() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Wrap(
-        spacing: 8,
-        direction: Axis.horizontal,
-        children: [1, 2, 3, 4].map<Widget>((e) => ProductCard()).toList(),
       ),
     );
   }
@@ -105,6 +96,58 @@ class _HomeScreenState extends State<HomeScreen> {
           return ProductCategoryItem();
         },
         separatorBuilder: (context, index) => const SizedBox(width: 8),
+      ),
+    );
+  }
+
+  Widget _getPopularProducts() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        spacing: 8,
+        children:
+            [1, 2, 3, 4]
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: ProductCard(),
+                  ),
+                )
+                .toList(),
+      ),
+    );
+  }
+
+  Widget _getSpecialProducts() {
+    return SizedBox(
+      height: 185,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return ProductCard();
+        },
+        separatorBuilder: (context, index) {
+          return SizedBox(width: 8);
+        },
+        itemCount: 10,
+      ),
+    );
+  }
+
+  Widget _getNewProducts() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        spacing: 8,
+        children:
+            [1, 2, 3, 4]
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: ProductCard(),
+                  ),
+                )
+                .toList(),
       ),
     );
   }
