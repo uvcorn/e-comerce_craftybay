@@ -1,6 +1,7 @@
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/features/home/ui/screens/home_screen.dart';
 import 'package:crafty/features/product/ui/screens/product_category_screen.dart';
+import 'package:crafty/features/wishlist/ui/screen/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -16,7 +17,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     HomeScreen(),
     ProductCategoryScreen(),
     ProductCategoryScreen(),
-    ProductCategoryScreen(),
+    WishListScreen(),
   ];
   @override
   Widget build(BuildContext context) {
