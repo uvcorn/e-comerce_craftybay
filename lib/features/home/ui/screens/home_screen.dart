@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               ProductSearcBar(),
               const SizedBox(height: 8),
-              HomeCarouselSlider(),
+              HomeCarouselSlider(productImage: [AssetPath.blueShoe]),
               const SizedBox(height: 8),
               _buildSectionHeader(
                 title: 'Categories',
@@ -105,15 +105,14 @@ class _HomeScreenState extends State<HomeScreen> {
       scrollDirection: Axis.horizontal,
       child: Row(
         spacing: 8,
-        children:
-            [1, 2, 3, 4]
-                .map(
-                  (e) => Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: ProductCard(),
-                  ),
-                )
-                .toList(),
+        children: [1, 2, 3, 4]
+            .map(
+              (e) => Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: ProductCard(),
+              ),
+            )
+            .toList(),
       ),
     );
   }
@@ -139,15 +138,14 @@ class _HomeScreenState extends State<HomeScreen> {
       scrollDirection: Axis.horizontal,
       child: Row(
         spacing: 8,
-        children:
-            [1, 2, 3, 4]
-                .map(
-                  (e) => Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: ProductCard(),
-                  ),
-                )
-                .toList(),
+        children: [1, 2, 3, 4]
+            .map(
+              (e) => Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: ProductCard(),
+              ),
+            )
+            .toList(),
       ),
     );
   }

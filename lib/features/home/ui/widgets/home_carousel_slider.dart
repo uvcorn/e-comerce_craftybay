@@ -3,7 +3,13 @@ import 'package:crafty/app/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeCarouselSlider extends StatefulWidget {
-  const HomeCarouselSlider({super.key});
+  final List<String> productImage;
+  final bool autoplay;
+  const HomeCarouselSlider({
+    super.key,
+    required this.productImage,
+    this.autoplay = true,
+  });
 
   @override
   State<HomeCarouselSlider> createState() => _HomeCarouselSliderState();
@@ -22,9 +28,9 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
             onPageChanged: (int currentIndex, _) {
               _currentSlider.value = currentIndex;
             },
-            autoPlay: true,
+            autoPlay: widget.autoplay,
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: widget.productImage.map((assetPath) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -33,11 +39,10 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                   decoration: BoxDecoration(
                     color: AppColors.themeColor,
                     borderRadius: BorderRadius.circular(8),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'text $i',
-                    style: TextStyle(fontSize: 16.0, color: Colors.white),
+                    image: DecorationImage(
+                      image: AssetImage(assetPath),
+                      // fit: BoxFit.none,
+                    ),
                   ),
                 );
               },
@@ -52,7 +57,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < widget.productImage.length; i++)
                   Container(
                     width: 12,
                     height: 12,
