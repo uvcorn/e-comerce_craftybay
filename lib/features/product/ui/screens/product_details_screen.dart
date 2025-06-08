@@ -1,3 +1,5 @@
+import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
+import 'package:crafty/features/common/ui/widgets/c_app_bar.dart';
 import 'package:crafty/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:crafty/features/product/ui/controller/product_controller.dart';
 import 'package:crafty/features/product/ui/widget/color_selector.dart';
@@ -8,21 +10,21 @@ import 'package:crafty/features/product/ui/widget/size_sector.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProductScreen extends StatelessWidget {
-  const ProductScreen({super.key});
+class ProductDetailsScreen extends StatelessWidget {
+  const ProductDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Initialize controller using Get.put for dependency injection
     final ProductController controller = Get.put(ProductController());
-
+    final MainBottomNavController navController =
+        Get.find<MainBottomNavController>();
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (_, __) => controller.backToHome(),
+      onPopInvokedWithResult: (_, __) => navController.backToHome(),
       child: Scaffold(
-        appBar: AppBar(
+        appBar: CAppBar(
           leading: IconButton(
-            onPressed: controller.backToHome,
+            onPressed: navController.backToHome,
             icon: const Icon(Icons.arrow_back_ios),
           ),
           title: Text(
@@ -36,7 +38,6 @@ class ProductScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 8),
-              // Use Obx to react to changes in selectedColor
               Obx(
                 () => HomeCarouselSlider(
                   productImage: controller.currentProductImages,

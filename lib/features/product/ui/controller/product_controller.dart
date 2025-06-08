@@ -1,7 +1,5 @@
 import 'package:crafty/app/app_colors.dart';
 import 'package:crafty/app/asset_path.dart';
-import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
-import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,11 +32,6 @@ class ProductController extends GetxController {
 
   void selectColor(Color color) => _selectedColor.value = color;
   void selectSize(String size) => _selectedSize.value = size;
-
-  void backToHome() {
-    Get.find<MainBottomNavController>().backTohome();
-    Get.offAllNamed(MainBottomNavScreen.name);
-  }
 
   void addToCart() {
     // Implement your add to cart logic here

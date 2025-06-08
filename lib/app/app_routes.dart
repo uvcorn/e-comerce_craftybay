@@ -6,6 +6,7 @@ import 'package:crafty/features/auth/ui/screen/sign_up_screen.dart';
 import 'package:crafty/features/auth/ui/screen/splash_screen.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:crafty/features/product/ui/screens/product_list_screen.dart';
+import 'package:crafty/features/review/ui/screen/review_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -29,6 +30,8 @@ class AppRoutes {
     } else if (settings.name == ProductListScreen.name) {
       final String category = settings.arguments as String;
       screenWidget = ProductListScreen(category: category);
+    } else if (settings.name == ReviewScreen.name) {
+      screenWidget = ReviewScreen();
     }
 
     return MaterialPageRoute(builder: (context) => screenWidget);

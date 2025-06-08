@@ -1,5 +1,7 @@
 import 'package:crafty/app/app_colors.dart';
+import 'package:crafty/features/review/ui/screen/review_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductReviewSection extends StatelessWidget {
   const ProductReviewSection({super.key});
@@ -11,7 +13,12 @@ class ProductReviewSection extends StatelessWidget {
         const Icon(Icons.star, size: 18, color: Colors.amber),
         const SizedBox(width: 4),
         const Text('4.5', style: TextStyle(color: Colors.grey)),
-        TextButton(onPressed: () {}, child: const Text('Reviews')),
+        TextButton(
+          onPressed: () {
+            Get.toNamed(ReviewScreen.name);
+          },
+          child: const Text('Reviews'),
+        ),
         Card(
           color: AppColors.themeColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),

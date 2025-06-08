@@ -1,3 +1,4 @@
+import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:get/get.dart';
 
 class MainBottomNavController extends GetxController {
@@ -15,7 +16,8 @@ class MainBottomNavController extends GetxController {
     changeIndex(1);
   }
 
-  void backTohome() {
+  void backToHome() {
     changeIndex(0);
+    Get.offAllNamed(MainBottomNavScreen.name);
   }
 }

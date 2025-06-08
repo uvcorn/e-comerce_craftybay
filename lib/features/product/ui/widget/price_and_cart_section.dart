@@ -19,7 +19,7 @@ class PriceAndCartSection extends StatelessWidget {
       height: 65,
       width: double.maxFinite,
       decoration: BoxDecoration(
-        color: AppColors.themeColor.withOpacity(0.3),
+        color: AppColors.themeColor.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
         boxShadow: [BoxShadow(color: Colors.grey.shade200)],
       ),
@@ -44,7 +44,7 @@ class PriceAndCartSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(width: 65),
+          const SizedBox(width: 150),
           AddToCartButton(onPressed: onAddToCart),
         ],
       ),

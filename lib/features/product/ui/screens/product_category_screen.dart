@@ -1,7 +1,6 @@
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
-import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:crafty/features/common/ui/widgets/c_app_bar.dart';
 import 'package:crafty/features/common/ui/widgets/product_category_item.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,22 +12,20 @@ class ProductCategoryScreen extends StatefulWidget {
 }
 
 class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
+  final MainBottomNavController navController =
+      Get.find<MainBottomNavController>();
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) {
-        Get.find<MainBottomNavController>().backTohome();
-        Get.offAllNamed(MainBottomNavScreen.name);
+        navController.backToHome();
       },
       child: Scaffold(
-        appBar: AppBar(
+        appBar: CAppBar(
           title: Text('Categories'),
           leading: IconButton(
-            onPressed: () {
-              Get.find<MainBottomNavController>().backTohome();
-              Get.offAllNamed(MainBottomNavScreen.name);
-            },
+            onPressed: navController.backToHome,
             icon: Icon(Icons.arrow_back_ios),
           ),
         ),

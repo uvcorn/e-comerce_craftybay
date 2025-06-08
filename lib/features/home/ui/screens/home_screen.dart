@@ -2,6 +2,7 @@ import 'package:crafty/app/asset_path.dart';
 import 'package:crafty/features/auth/ui/screen/login_screen.dart';
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:crafty/features/common/ui/widgets/c_app_bar.dart';
 
 import 'package:crafty/features/common/ui/widgets/product_card.dart';
 import 'package:crafty/features/home/ui/widgets/appbar_iconbutton.dart';
@@ -22,7 +23,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appbar(),
+      appBar: CAppBar(
+        title: SvgPicture.asset(AssetPath.navAppLogoSvg),
+        actions: [
+          AppBarIconButton(
+            iconData: Icons.person,
+            onTap: () {
+              Get.toNamed(LoginScreen.name);
+            },
+          ),
+          AppBarIconButton(iconData: Icons.call, onTap: () {}),
+          AppBarIconButton(iconData: Icons.notifications, onTap: () {}),
+        ],
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
@@ -52,22 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  AppBar _appbar() {
-    return AppBar(
-      title: SvgPicture.asset(AssetPath.navAppLogoSvg),
-      actions: [
-        AppBarIconButton(
-          iconData: Icons.person,
-          onTap: () {
-            Navigator.pushNamed(context, LoginScreen.name);
-          },
-        ),
-        AppBarIconButton(iconData: Icons.call, onTap: () {}),
-        AppBarIconButton(iconData: Icons.notifications, onTap: () {}),
-      ],
     );
   }
 

@@ -1,5 +1,5 @@
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
-import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:crafty/features/common/ui/widgets/c_app_bar.dart';
 import 'package:crafty/features/common/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,41 +11,37 @@ class WishListScreen extends StatefulWidget {
 }
 
 class _WishListScreenState extends State<WishListScreen> {
+  final MainBottomNavController navController =
+      Get.find<MainBottomNavController>();
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) {
-        _backToHme();
+        navController.backToHome();
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Wish List'),
+        appBar: CAppBar(
+          title: 'Wish List',
           leading: IconButton(
-            onPressed: _backToHme,
-            icon: Icon(Icons.arrow_back_ios),
+            onPressed: navController.backToHome,
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
-
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 16,
             ),
             itemCount: 30,
             itemBuilder: (context, index) {
-              return FittedBox(child: ProductCard());
+              return const FittedBox(child: ProductCard());
             },
           ),
         ),
       ),
     );
-  }
-
-  void _backToHme() {
-    Get.find<MainBottomNavController>().backTohome();
-    Get.offAllNamed(MainBottomNavScreen.name);
   }
 }
