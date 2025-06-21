@@ -23,10 +23,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: true,
-      onPopInvokedWithResult: (_, __) => Get.back(),
       child: Scaffold(
         appBar: CAppBar(
-          title: 'Wish List',
+          title: 'Review',
           leading: IconButton(
             onPressed: Get.back,
             icon: const Icon(Icons.arrow_back_ios),

@@ -1,5 +1,5 @@
 import 'package:crafty/app/app_colors.dart';
-import 'package:crafty/features/review/ui/screen/review_screen.dart';
+import 'package:crafty/features/review/ui/screen/review_screen_raw.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

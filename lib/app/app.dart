@@ -19,7 +19,6 @@ class _CraftyBayState extends State<CraftyBay> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.name,
-      // routes: {'/':(context)=> SplashScreen(),},
       theme: AppTheme.lightThemeData,
       onGenerateRoute: AppRoutes.routes,
       initialBinding: ControllerBinder(),

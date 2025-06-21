@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               ProductSearcBar(),
               const SizedBox(height: 8),
-              HomeCarouselSlider(productImage: [AssetPath.blueShoe]),
+              HomeCarouselSlider(),
               const SizedBox(height: 8),
               _buildSectionHeader(
                 title: 'Categories',

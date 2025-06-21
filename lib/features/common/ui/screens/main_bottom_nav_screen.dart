@@ -17,7 +17,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     ProductCategoryScreen(),
-    ProductDetailsScreen(),
+    ProductDetailsScreen(productId: ''),
     WishListScreen(),
   ];
   @override
