@@ -3,10 +3,10 @@ import 'package:crafty/features/auth/ui/screen/login_screen.dart';
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:crafty/features/common/ui/widgets/c_app_bar.dart';
+import 'package:crafty/features/common/ui/widgets/coustom_carousel_slider.dart';
 
 import 'package:crafty/features/common/ui/widgets/product_card.dart';
 import 'package:crafty/features/home/ui/widgets/appbar_iconbutton.dart';
-import 'package:crafty/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:crafty/features/common/ui/widgets/product_category_item.dart';
 import 'package:crafty/features/home/ui/widgets/product_search_bar.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               ProductSearcBar(),
               const SizedBox(height: 8),
-              HomeCarouselSlider(),
+              CustomCarouselSlider(type: SliderType.home),
               const SizedBox(height: 8),
               _buildSectionHeader(
                 title: 'Categories',

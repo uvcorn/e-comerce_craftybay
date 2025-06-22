@@ -4,6 +4,7 @@ import 'package:crafty/features/auth/ui/screen/otp_verification_screen.dart';
 import 'package:crafty/features/auth/ui/screen/reset_password_screen.dart';
 import 'package:crafty/features/auth/ui/screen/sign_up_screen.dart';
 import 'package:crafty/features/auth/ui/screen/splash_screen.dart';
+import 'package:crafty/features/cart/ui/screens/cart_screen.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:crafty/features/product/ui/screens/product_details_screen.dart';
 import 'package:crafty/features/product/ui/screens/product_list_screen.dart';
@@ -36,6 +37,8 @@ class AppRoutes {
       screenWidget = ProductDetailsScreen(productId: productId);
     } else if (settings.name == ReviewScreen.name) {
       screenWidget = ReviewScreen();
+    } else if (settings.name == CartScreen.name) {
+      screenWidget = CartScreen();
     }
 
     return MaterialPageRoute(builder: (context) => screenWidget);

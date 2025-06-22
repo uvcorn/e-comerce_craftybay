@@ -1,10 +1,8 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:crafty/app/app_colors.dart';
-import 'package:crafty/app/constant.dart';
+import 'package:crafty/features/common/ui/widgets/cart_bottom_bar.dart';
 import 'package:crafty/features/product/ui/widget/color_picker.dart';
-import 'package:crafty/features/product/ui/widget/inc_dec_button.dart';
-import 'package:crafty/features/product/ui/widget/product_image_slider.dart';
+import 'package:crafty/features/common/ui/widgets/inc_dec_button.dart';
+import 'package:crafty/features/common/ui/widgets/coustom_carousel_slider.dart';
 import 'package:crafty/features/product/ui/widget/size_picker.dart';
 import 'package:crafty/features/review/ui/screen/review_screen_raw.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +30,7 @@ class ProductDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ProductImageSlider(),
+                  CustomCarouselSlider(type: SliderType.product),
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
@@ -54,7 +52,11 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          _buildPriceAndAddToCartSection(context),
+          CartBottomBar(
+            totalPrice: 100,
+            buttonText: 'Add to Cart',
+            onCheckout: () {},
+          ),
         ],
       ),
     );
@@ -159,44 +161,6 @@ class ProductDetailsScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black54),
         ),
       ],
-    );
-  }
-
-  Widget _buildPriceAndAddToCartSection(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppColors.themeColor.withOpacity(0.15),
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              Text('Price', style: Theme.of(context).textTheme.bodyLarge),
-              Text(
-                "${Constant.takaSign}100",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.themeColor,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            width: 120,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text('Add TO Cart'),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
