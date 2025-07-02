@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:crafty/core/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:crafty/core/ui/widgets/snack_bar_message.dart';
 import 'package:crafty/features/auth/data/models/sign_up_request_model.dart';
 import 'package:crafty/features/auth/ui/controller/sign_up_controller.dart';
+import 'package:crafty/features/auth/ui/screen/verify_otp_screen.dart.dart';
 import 'package:crafty/features/auth/ui/widgets/app_logo.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -186,9 +189,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
         phone: _mobileTEController.text.trim(),
       );
       final bool isSuccess = await _signUpController.signUp(model);
+      if (!mounted) return;
       if (isSuccess) {
-        //TODO: Navigator.pushNamed(context, Verify)
         showSnackBarMessage(context, _signUpController.message);
+        Navigator.pushNamed(
+          context,
+          VerifyOtpScreen.name,
+          arguments: _emailTEController.text.trim(),
+        );
       } else {
         showSnackBarMessage(context, _signUpController.errorMessage!, true);
       }

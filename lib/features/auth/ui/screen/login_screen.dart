@@ -1,10 +1,7 @@
-import 'package:crafty/features/auth/ui/screen/email_verification_screen.dart';
-import 'package:crafty/features/auth/ui/screen/sign_up_screen.dart';
 import 'package:crafty/features/auth/ui/widgets/app_logo.dart';
 import 'package:crafty/features/common/ui/screens/main_bottom_nav_screen.dart';
 
 import 'package:email_validator/email_validator.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -76,38 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: _onTapLoginButton,
                     child: Text('Login'),
                   ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: Column(
-                      children: [
-                        TextButton(
-                          onPressed: _onTapForgetPasswordButton,
-                          child: const Text('Forget Password?'),
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            children: [
-                              const TextSpan(text: "Don't have an account? "),
-                              TextSpan(
-                                text: 'Sign Up',
-                                style: TextStyle(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = _onTapSignUpButton,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -123,16 +88,6 @@ class _LoginScreenState extends State<LoginScreen> {
       MainBottomNavScreen.name,
       (predicate) => false,
     );
-    // if (_formKey.currentState!.validate()) {}
-  }
-
-  void _onTapForgetPasswordButton() {
-    Navigator.pushNamed(context, EmailVerificationScreen.name);
-    // if (_formKey.currentState!.validate()) {}
-  }
-
-  void _onTapSignUpButton() {
-    Navigator.pushNamed(context, SignUpScreen.name);
     // if (_formKey.currentState!.validate()) {}
   }
 

@@ -26,7 +26,7 @@ class NetworkClient {
         return NetworkResponse(
           isSuccess: true,
           statusCode: response.statusCode,
-          errorMessage: responseBody,
+          responseData: responseBody,
         );
       } else if (response.statusCode == 401) {
         onUnAuthorize();
@@ -70,7 +70,7 @@ class NetworkClient {
         return NetworkResponse(
           isSuccess: true,
           statusCode: response.statusCode,
-          errorMessage: responseBody,
+          responseData: responseBody,
         );
       } else if (response.statusCode == 401) {
         onUnAuthorize();
@@ -114,7 +114,7 @@ class NetworkClient {
         return NetworkResponse(
           isSuccess: false,
           statusCode: response.statusCode,
-          errorMessage: responseBody,
+          responseData: responseBody,
         );
       } else if (response.statusCode == 401) {
         onUnAuthorize();
@@ -158,7 +158,7 @@ class NetworkClient {
         return NetworkResponse(
           isSuccess: false,
           statusCode: response.statusCode,
-          errorMessage: responseBody,
+          responseData: responseBody,
         );
       } else if (response.statusCode == 401) {
         onUnAuthorize();
@@ -202,7 +202,7 @@ class NetworkClient {
         return NetworkResponse(
           isSuccess: false,
           statusCode: response.statusCode,
-          errorMessage: responseBody,
+          responseData: responseBody,
         );
       } else if (response.statusCode == 401) {
         onUnAuthorize();

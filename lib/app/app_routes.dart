@@ -1,6 +1,5 @@
-import 'package:crafty/features/auth/ui/screen/email_verification_screen.dart';
 import 'package:crafty/features/auth/ui/screen/login_screen.dart';
-import 'package:crafty/features/auth/ui/screen/otp_verification_screen.dart';
+import 'package:crafty/features/auth/ui/screen/verify_otp_screen.dart.dart';
 import 'package:crafty/features/auth/ui/screen/reset_password_screen.dart';
 import 'package:crafty/features/auth/ui/screen/sign_up_screen.dart';
 import 'package:crafty/features/auth/ui/screen/splash_screen.dart';
@@ -21,10 +20,9 @@ class AppRoutes {
       screenWidget = LoginScreen();
     } else if (settings.name == SignUpScreen.name) {
       screenWidget = SignUpScreen();
-    } else if (settings.name == EmailVerificationScreen.name) {
-      screenWidget = EmailVerificationScreen();
-    } else if (settings.name == OtpVerificationScreen.name) {
-      screenWidget = OtpVerificationScreen();
+    } else if (settings.name == VerifyOtpScreen.name) {
+      final String email = settings.arguments as String;
+      screenWidget = VerifyOtpScreen(email: email);
     } else if (settings.name == ResetPasswordScreen.name) {
       screenWidget = ResetPasswordScreen();
     } else if (settings.name == MainBottomNavScreen.name) {

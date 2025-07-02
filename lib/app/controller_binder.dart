@@ -1,4 +1,5 @@
 import 'package:crafty/features/auth/ui/controller/sign_up_controller.dart';
+import 'package:crafty/features/auth/ui/controller/verify_otp_controller.dart';
 import 'package:crafty/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty/core/network/network_client.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class ControllerBinder extends Bindings {
       ),
     );
     Get.put(SignUpController());
+    Get.put(VerifyOtpController());
   }
 
   void _onUnAuthorize() {

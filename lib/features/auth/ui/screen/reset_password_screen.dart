@@ -135,18 +135,18 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    _newPasswordTEController.dispose();
-    _confirmNewPasswordTEController.dispose();
-    super.dispose();
-  }
-
   void _onTapSignInButtn() {
     Navigator.pushNamedAndRemoveUntil(
       context,
       LoginScreen.name,
       (route) => false,
     );
+  }
+
+  @override
+  void dispose() {
+    _newPasswordTEController.dispose();
+    _confirmNewPasswordTEController.dispose();
+    super.dispose();
   }
 }
