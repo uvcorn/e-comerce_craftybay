@@ -120,10 +120,4 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
       }
     }
   }
-
-  // @override
-  // void dispose() {
-  //   _otpTEController.dispose();
-  //   super.dispose();
-  // }
 }
